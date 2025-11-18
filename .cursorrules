@@ -1,0 +1,59 @@
+# Cursor Rules for [Project Name]
+
+## Primary Rules Reference
+
+**All comprehensive rules and guidelines are defined in `Agents.md` in this repository.**
+
+When generating code, you MUST:
+1. **Follow Design Principles** - Always apply core design principles (Single Responsibility, DRY, KISS, Separation of Concerns, Composition, Open/Closed) from the [Design Principles](#design-principles) section in `Agents.md`.
+
+2. **Read and follow the rules in `Agents.md`** - This file contains detailed rules for all AI agents including:
+   - Design Principles (Single Responsibility, DRY, React patterns, memoization, portals, compound components)
+   - API Development Agent
+   - Frontend Component Agent
+   - Database Schema Agent
+   - Testing Agent
+   - Security Agent
+   - Performance Optimization Agent
+   - Documentation Agent
+   - Refactoring Agent
+   - Migration Agent
+   - Code Review Agent
+   - Commit Message Agent (commitlint format)
+
+3. **Apply the appropriate agent rules** based on the task at hand. For example:
+   - When creating API endpoints → Follow "API Development Agent" rules
+   - When building React components → Follow "Frontend Component Agent" rules + Design Principles
+   - When writing tests → Follow "Testing Agent" rules
+   - When working on security features → Follow "Security Agent" rules
+   - When generating commit messages → Follow "Commit Message Agent" rules (commitlint format)
+
+4. **Reference `Agents.md` for specific patterns, examples, and checklists** before generating code.
+
+## Project-Specific Overrides
+
+<!-- Customize this section for your specific project -->
+
+### Tech Stack
+- **Language**: TypeScript / JavaScript
+- **Framework**: React / Next.js
+- **Backend**: Node.js / Express
+- **Database**: PostgreSQL / MongoDB
+- **Testing**: Jest / Vitest
+- **Styling**: Tailwind CSS / CSS Modules
+
+### Project-Specific Conventions
+- Use absolute imports with path aliases: `@/components`, `@/utils`, `@/types`
+- Follow the file structure defined in the project root
+- Use the project's existing patterns and conventions
+- Reference existing similar code in the codebase for consistency
+
+### Quick Reference
+- **Naming**: Components (PascalCase), Functions (camelCase), Constants (UPPER_SNAKE_CASE)
+- **Imports**: External → Internal → Types → Styles
+- **Commits**: Follow commitlint format from Commit Message Agent (`type(scope): subject`)
+- **Design**: Apply Single Responsibility, use custom hooks, memoization, createPortal, compound components
+
+---
+
+**IMPORTANT**: Always consult `Agents.md` for comprehensive rules, examples, and best practices. This file serves as a quick reference and project-specific override layer only.
