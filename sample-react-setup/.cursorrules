@@ -1,0 +1,37 @@
+# Cursor IDE Rules Configuration (Legacy)
+
+⚠️ **This file is deprecated.** This project now uses the new Cursor Rules format.
+
+## 📋 New Rules Structure
+
+This project uses the modern Cursor Rules format:
+
+1. **`AGENTS.md`** - Main agent instructions (project root)
+   - Comprehensive coding standards and best practices
+   - React/Next.js guidelines, TypeScript standards, and more
+
+2. **`.cursor/rules/`** - Project Rules (MDC format)
+   - `react-nextjs-standards.mdc` - React/Next.js coding standards
+   - `documentation-standards.mdc` - JSDoc and documentation requirements
+   - `internationalization.mdc` - i18n best practices
+   - `component-patterns.mdc` - Component design patterns
+   - `seo-optimization.mdc` - SEO best practices
+
+3. **`docs/`** - Additional documentation
+   - `docs/RICH_TEXT_USAGE.md` - Rich text formatting guide
+   - `docs/SEO_AND_STATIC_GENERATION.md` - SEO implementation details
+
+## Migration Notes
+
+- Rules are now automatically applied based on their configuration
+- Project Rules in `.cursor/rules/` use MDC format with metadata
+- `AGENTS.md` provides simple markdown instructions
+- See [Cursor Rules Documentation](https://cursor.com/docs/context/rules) for details
+
+## Quick Reference
+
+For quick access to key rules, see:
+- `AGENTS.md` - Full coding standards
+- `.cursor/rules/react-nextjs-standards.mdc` - React/Next.js patterns
+- `.cursor/rules/documentation-standards.mdc` - Documentation requirements
+

@@ -1,0 +1,51 @@
+---
+description: React and Next.js coding standards, component patterns, and best practices
+alwaysApply: true
+---
+
+# React / Next.js Standards
+
+## Server Components First (SSR/SEO Priority)
+
+**This project prioritizes Server-Side Rendering (SSR) and SEO optimization above all else.**
+
+- **Server Components First**: Default to Server Components; use Client Components only when absolutely necessary
+- **SEO-First Thinking**: Every decision should consider SEO impact and server-side rendering benefits
+- **Client Components as Last Resort**: Only use `'use client'` when interactivity, browser APIs, or CSS animations require it
+
+### When to Use Server Components (Default)
+
+✅ ALWAYS use Server Components for:
+- Data fetching (database queries, API calls)
+- Accessing backend resources (file system, environment variables)
+- Keeping sensitive information on server (API keys, tokens)
+- Large dependencies that should be kept on server
+- Static content and layouts
+- SEO-critical content (headings, meta tags, structured data)
+
+### When to Use Client Components (Last Resort)
+
+⚠️ ONLY use Client Components when:
+- You need interactivity (onClick, onChange, useState, useEffect)
+- You need browser APIs (window, document, localStorage, etc.)
+- You need React hooks that require client-side
+- You need CSS animations that require JavaScript triggers
+
+## Component Organization
+
+- **Split large components (>300 lines) into folders** with sub-components
+- **Component-specific types** at end of component files
+- **Shared types** in `app/types/` folder
+- **No separate `*-client.ts` type files** - all types in main type file
+
+## TypeScript Standards
+
+- Explicit types, avoid `any`
+- Component prop types at end of component files
+- Compound component types in types folder (only when needed)
+
+## Tailwind CSS
+
+- ✅ Always check [Tailwind docs](https://tailwindcss.com/docs) before using inline styles
+- ✅ Use utility classes or custom utilities via `@utility` directive in `globals.css`
+- ❌ Avoid inline `style={{}}` props - use Tailwind classes instead

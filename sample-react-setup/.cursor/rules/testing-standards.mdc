@@ -1,0 +1,42 @@
+---
+description: Testing guidelines and best practices
+globs:
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/__tests__/**"
+alwaysApply: false
+---
+
+# Testing Guidelines
+
+## Test Organization
+
+- **Unit Tests**: Test pure functions and utilities
+- **Component Tests**: Test component behavior, not implementation
+- **Integration Tests**: Test feature workflows
+- **Test Coverage**: Aim for >80% coverage on critical paths
+- **Test Organization**: Mirror source structure in test files
+
+## Best Practices
+
+- Test behavior, not implementation details
+- Use descriptive test names that explain what is being tested
+- Keep tests isolated and independent
+- Mock external dependencies appropriately
+- Test edge cases and error conditions
+
+## Example Structure
+
+```typescript
+describe('formatDate', () => {
+  it('should format date correctly', () => {
+    expect(formatDate(new Date('2024-01-01'))).toBe('Jan 1, 2024');
+  });
+
+  it('should handle invalid dates', () => {
+    expect(() => formatDate(null as any)).toThrow();
+  });
+});
+```

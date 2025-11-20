@@ -1,0 +1,43 @@
+---
+description: Git commit message standards using Conventional Commits
+alwaysApply: true
+---
+
+# Commit Message Standards
+
+Follow the [Conventional Commits](https://www.conventionalcommits.org/) specification for all commit messages.
+
+## Commit Message Format
+
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+## Commit Types
+
+- **`feat`**: A new feature
+- **`fix`**: A bug fix
+- **`docs`**: Documentation only changes
+- **`style`**: Changes that do not affect the meaning of the code
+- **`refactor`**: A code change that neither fixes a bug nor adds a feature
+- **`perf`**: A code change that improves performance
+- **`test`**: Adding missing tests or correcting existing tests
+- **`build`**: Changes that affect the build system
+- **`ci`**: Changes to CI configuration files and scripts
+- **`chore`**: Other changes that don't modify src or test files
+
+## Examples
+
+✅ Good:
+- `feat(auth): add JWT token refresh`
+- `fix(api): handle null user responses`
+- `refactor(components): extract date formatting logic`
+
+❌ Bad:
+- `Fixed bug`
+- `update code`
+- `WIP`

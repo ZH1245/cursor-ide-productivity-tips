@@ -1,0 +1,31 @@
+---
+description: Documentation standards including JSDoc requirements and README guidelines
+alwaysApply: true
+---
+
+# Documentation Standards
+
+## Code Documentation
+
+- **JSDoc Comments**: All exported functions, classes, components, types, and interfaces MUST have JSDoc comments
+- **Type Annotations**: Use explicit TypeScript types; avoid `any` unless absolutely necessary
+- **Inline Comments**: Explain "why" not "what" - code should be self-documenting
+
+## README Updates
+
+**✅ Update README.md when:**
+- Adding new major features or capabilities
+- Changing project structure (new folders, significant reorganization)
+- Updating tech stack or dependencies
+- Adding new setup/installation steps
+
+**❌ Don't update README.md for:**
+- Small bug fixes
+- Internal refactoring that doesn't change user-facing behavior
+- Adding utility functions or helpers
+- Minor component additions
+
+## File-Level Documentation
+
+- **File Headers**: Include a brief description at the top of complex files
+- **Module Purpose**: Document the purpose and responsibility of each module

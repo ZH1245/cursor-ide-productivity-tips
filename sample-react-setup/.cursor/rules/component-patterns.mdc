@@ -1,0 +1,45 @@
+---
+description: Component design patterns including when to use compound components
+globs:
+  - "**/components/**"
+alwaysApply: false
+---
+
+# Component Design Patterns
+
+## Compound Component Pattern: When to Use
+
+**✅ Use Compound Components when:**
+- Sub-components are used by **parent components** (external composition)
+- You need flexible composition where parents can rearrange or customize sub-components
+- The component is a reusable library component that needs maximum flexibility
+
+**❌ Don't use Compound Components when:**
+- Sub-components are **only used internally** within the same file
+- The component structure is fixed and never changes
+- You're just organizing code internally (use regular helper components instead)
+
+## Component Organization
+
+**Split into folder when:**
+- Component exceeds 300-500 lines
+- Component has multiple distinct sub-components
+- Component has complex internal state management that can be isolated
+
+**Keep as single file when:**
+- Component is simple and under 400 lines
+- Component is a single, cohesive unit without distinct sub-sections
+- Splitting would create unnecessary complexity
+
+## Folder Structure Pattern
+
+```
+components/
+├── features/
+│   └── navigation/
+│       ├── Footer/
+│       │   ├── index.tsx          # Main component
+│       │   ├── FooterHeader.tsx  # Sub-component
+│       │   └── types.ts          # Component-specific types
+│       └── Navbar.tsx            # Simple component (single file)
+```

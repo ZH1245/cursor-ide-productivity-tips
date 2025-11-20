@@ -1,0 +1,43 @@
+---
+description: TypeScript coding standards and type safety requirements
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+alwaysApply: false
+---
+
+# TypeScript Standards
+
+## Type Safety
+
+- **Explicit Types**: Prefer explicit types over inference for function parameters and returns
+- **Avoid `any`**: Use `unknown` and type guards instead of `any`
+- **Type Guards**: Use type guards for runtime type checking
+- **Discriminated Unions**: Use discriminated unions for state management
+
+## Type Organization
+
+- **Component prop types** at end of component files
+- **Shared types** in `app/types/` folder
+- **No separate `*-client.ts` type files** - all types in main type file
+- **Compound component types** in types folder (only when needed)
+
+## Type Documentation
+
+All exported types, interfaces, and type aliases MUST have JSDoc comments:
+
+```typescript
+/**
+ * User data structure representing a user in the system.
+ *
+ * @typedef {Object} User
+ * @property {string} id - Unique user identifier (UUID)
+ * @property {string} email - User's email address
+ * @property {Date} createdAt - Account creation timestamp
+ */
+export type User = {
+  id: string;
+  email: string;
+  createdAt: Date;
+};
+```

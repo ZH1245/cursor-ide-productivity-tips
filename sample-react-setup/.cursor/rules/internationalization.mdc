@@ -1,0 +1,56 @@
+---
+description: Internationalization (i18n) best practices using next-intl
+globs:
+  - "**/messages/**"
+  - "**/[locale]/**"
+  - "**/*i18n*"
+alwaysApply: false
+---
+
+# Internationalization (i18n)
+
+This project uses [next-intl](https://next-intl-docs.vercel.app/) for internationalization with support for Japanese and English.
+
+## Core Principles
+
+- **Route-based i18n**: Locales are part of the URL structure (`/en`, `/ja`)
+- **Server Components First**: Use `getTranslations` in Server Components for optimal performance
+- **Client Components**: Use `useTranslations` hook only when necessary (interactivity)
+- **SEO Optimization**: Always include hreflang tags and alternate language links
+
+## Translation File Structure
+
+Translation files are located in `messages/` directory:
+- `messages/en.json` - English translations
+- `messages/ja.json` - Japanese translations
+
+## Using Translations
+
+### Server Components
+```typescript
+import { getTranslations } from 'next-intl/server';
+
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'common' });
+  return <div>{t('welcome')}</div>;
+}
+```
+
+### Client Components
+```typescript
+'use client';
+import { useTranslations } from 'next-intl';
+
+export function Button() {
+  const t = useTranslations('common');
+  return <button>{t('submit')}</button>;
+}
+```
+
+## Best Practices
+
+- Always provide translations for all locales
+- Keep consistent structure across all locale files
+- Use rich text formatting with `t.rich()` when needed
+- Consider cultural context, not just literal translation

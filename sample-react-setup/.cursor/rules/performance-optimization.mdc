@@ -1,0 +1,29 @@
+---
+description: Performance optimization patterns for React and Next.js
+globs:
+  - "**/components/**"
+  - "**/hooks/**"
+alwaysApply: false
+---
+
+# Performance Optimization
+
+## React Optimization
+
+- **Memoization**: Use `React.memo()` for expensive components, `useMemo()` for expensive calculations, `useCallback()` for stable function references
+- **Code Splitting**: Use dynamic imports (`next/dynamic`) for heavy components
+- **Lazy Loading**: Lazy load routes and components that aren't immediately needed
+- **Avoid Unnecessary Re-renders**: Optimize dependencies in hooks, avoid creating objects/arrays in render
+
+## Next.js Optimization
+
+- **Server Components**: Prefer Server Components; use Client Components only when necessary
+- **Static Generation**: Use `generateStaticParams` and static generation where possible
+- **Image Optimization**: Always use `next/image` for images
+- **Font Optimization**: Use `next/font` for custom fonts
+
+## Bundle Size
+
+- **Tree Shaking**: Use ES modules, avoid default exports for utilities
+- **Remove Unused Code**: Regularly audit and remove dead code
+- **Analyze Bundle**: Use `@next/bundle-analyzer` to identify large dependencies

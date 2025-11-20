@@ -1,0 +1,46 @@
+---
+description: Error handling patterns and best practices
+globs:
+  - "**/api/**"
+  - "**/services/**"
+  - "**/lib/**"
+alwaysApply: false
+---
+
+# Error Handling
+
+## Core Principles
+
+- **Error Boundaries**: Use React Error Boundaries for component errors
+- **API Errors**: Handle API errors gracefully with proper error types
+- **Validation**: Validate inputs at boundaries (API routes, form submissions)
+- **Logging**: Log errors with context for debugging
+
+## Patterns
+
+### API Error Handling
+
+```typescript
+async function fetchUser(id: string): Promise<User> {
+  try {
+    const response = await fetch(`/api/users/${id}`);
+    if (!response.ok) {
+      throw new ApiError(`Failed to fetch user: ${response.statusText}`, response.status);
+    }
+    const data = await response.json();
+    return validateUser(data);
+  } catch (error) {
+    if (error instanceof ApiError) {
+      throw error;
+    }
+    logger.error('Unexpected error fetching user', { id, error });
+    throw new Error('Failed to fetch user');
+  }
+}
+```
+
+### Validation
+
+- Validate inputs at boundaries (API routes, form submissions)
+- Use Zod or similar for runtime validation
+- Provide clear error messages

@@ -1,0 +1,66 @@
+---
+description: SEO best practices and metadata generation for Next.js
+globs:
+  - "**/page.tsx"
+  - "**/layout.tsx"
+  - "**/metadata.ts"
+alwaysApply: false
+---
+
+# SEO Optimization
+
+## Core SEO Principles
+
+- **Metadata**: Every page must have unique, descriptive metadata (title, description, keywords)
+- **Structured Data**: Use JSON-LD structured data for rich snippets
+- **Semantic HTML**: Use proper HTML5 semantic elements
+- **Performance**: Fast page loads improve SEO rankings (Core Web Vitals)
+- **Mobile-First**: Ensure responsive design and mobile optimization
+
+## Next.js SEO Implementation
+
+### Metadata API
+
+Use Next.js 13+ Metadata API for all pages:
+
+```typescript
+import type { Metadata } from 'next';
+import { generateMetadata } from '@/app/lib/seo';
+
+export const metadata: Metadata = generateMetadata({
+  title: 'About Us',
+  description: 'Learn more about OneDrops and our mission.',
+  path: '/about',
+});
+```
+
+### Structured Data (JSON-LD)
+
+Add structured data for better search engine understanding:
+
+```typescript
+import { generateStructuredData } from '@/app/lib/seo';
+import Script from 'next/script';
+
+const organizationSchema = generateStructuredData('Organization', {
+  name: 'OneDrops',
+  url: 'https://onedrops.com',
+});
+
+<Script
+  id="organization-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: organizationSchema }}
+/>
+```
+
+## SEO Checklist
+
+- [ ] Unique title and description for each page
+- [ ] Open Graph and Twitter Card metadata included
+- [ ] Canonical URLs set for all pages
+- [ ] Structured data (JSON-LD) added where appropriate
+- [ ] All images have descriptive alt text
+- [ ] Semantic HTML structure used
+- [ ] Mobile-responsive design
+- [ ] Fast page load times (Core Web Vitals)
